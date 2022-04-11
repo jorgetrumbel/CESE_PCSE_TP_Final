@@ -26,15 +26,15 @@ extern "C" {
 
 #include <hal_delay.h>
 
-extern struct usart_async_descriptor USART_0;
+extern struct usart_async_descriptor UART_TTL;
 
 void   SPI_AS5047D_PORT_init(void);
 void   SPI_AS5047D_CLOCK_init(void);
 int8_t SPI_AS5047D_init(void);
 
-void USART_0_PORT_init(void);
-void USART_0_CLOCK_init(void);
-void USART_0_init(void);
+void UART_TTL_PORT_init(void);
+void UART_TTL_CLOCK_init(void);
+void UART_TTL_init(void);
 
 void delay_driver_init(void);
 

@@ -498,7 +498,7 @@ drivers:
       RESERVED_InputFreq: 32768
       RESERVED_InputFreq_id: 32kHz External Crystal Oscillator (XOSC32K)
       _$freq_output_48MHz Internal Oscillator (OSC48M): 24000000
-      _$freq_output_External Crystal Oscillator 0.4-32MHz (XOSC): '400000'
+      _$freq_output_External Crystal Oscillator 0.4-32MHz (XOSC): 400000
       _$freq_output_Fractional Digital Phase Locked Loop (FDPLL96M): 47998976
       enable_fdpll96m: false
       enable_osc48m: true
@@ -638,8 +638,8 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 0
           slow_gclk_selection: Generic clock generator 0
-  USART_0:
-    user_label: USART_0
+  UART_TTL:
+    user_label: UART_TTL
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::SERCOM3::driver_config_definition::UART::HAL:Driver:USART.Async
     functionality: USART
     api: HAL:Driver:USART_Async

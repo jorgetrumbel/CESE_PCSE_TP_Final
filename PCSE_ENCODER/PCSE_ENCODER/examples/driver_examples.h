@@ -14,7 +14,7 @@ extern "C" {
 
 void SPI_AS5047D_example(void);
 
-void USART_0_example(void);
+void UART_TTL_example(void);
 
 void delay_example(void);
 

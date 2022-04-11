@@ -12,11 +12,11 @@
 #include <hal_init.h>
 
 /*! The buffer size for USART */
-#define USART_0_BUFFER_SIZE 16
+#define UART_TTL_BUFFER_SIZE 16
 
-struct usart_async_descriptor USART_0;
+struct usart_async_descriptor UART_TTL;
 
-static uint8_t USART_0_buffer[USART_0_BUFFER_SIZE];
+static uint8_t UART_TTL_buffer[UART_TTL_BUFFER_SIZE];
 
 void SPI_AS5047D_PORT_init(void)
 {
@@ -71,7 +71,7 @@ void SPI_AS5047D_CLOCK_init(void)
  *
  * Enables register interface and peripheral clock
  */
-void USART_0_CLOCK_init()
+void UART_TTL_CLOCK_init()
 {
 
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM3_GCLK_ID_CORE, CONF_GCLK_SERCOM3_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
@@ -84,7 +84,7 @@ void USART_0_CLOCK_init()
  *
  * Set each required pin to USART functionality
  */
-void USART_0_PORT_init()
+void UART_TTL_PORT_init()
 {
 
 	gpio_set_pin_function(PA22, PINMUX_PA22C_SERCOM3_PAD0);
@@ -97,11 +97,11 @@ void USART_0_PORT_init()
  *
  * Enables USART peripheral, clocks and initializes USART driver
  */
-void USART_0_init(void)
+void UART_TTL_init(void)
 {
-	USART_0_CLOCK_init();
-	usart_async_init(&USART_0, SERCOM3, USART_0_buffer, USART_0_BUFFER_SIZE, (void *)NULL);
-	USART_0_PORT_init();
+	UART_TTL_CLOCK_init();
+	usart_async_init(&UART_TTL, SERCOM3, UART_TTL_buffer, UART_TTL_BUFFER_SIZE, (void *)NULL);
+	UART_TTL_PORT_init();
 }
 
 void delay_driver_init(void)
@@ -130,7 +130,7 @@ void system_init(void)
 	SPI_AS5047D_CLOCK_init();
 	SPI_AS5047D_init();
 	SPI_AS5047D_PORT_init();
-	USART_0_init();
+	UART_TTL_init();
 
 	delay_driver_init();
 }
